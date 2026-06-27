@@ -1,4 +1,5 @@
 import type { AirdropStep } from "@/types/database.types";
+import { RichText } from "@/components/ui/RichText";
 
 export function StepGuide({ steps }: { steps: AirdropStep[] }) {
   if (!steps || steps.length === 0) return null;
@@ -16,7 +17,9 @@ export function StepGuide({ steps }: { steps: AirdropStep[] }) {
             </span>
             <div className="pt-0.5">
               <h3 className="font-medium text-white">{step.title}</h3>
-              <p className="mt-1 text-sm text-zinc-400">{step.description}</p>
+              <div className="mt-1 text-sm text-zinc-400">
+                <RichText text={step.description} />
+              </div>
             </div>
           </li>
         ))}

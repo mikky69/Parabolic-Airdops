@@ -24,7 +24,7 @@ The entire process takes just a few minutes and requires no investment. For aird
   null,
   'active',
   '[
-    {"title": "Sign up on the platform", "description": "Register at arcnova.tv using the referral link below."},
+    {"title": "Sign up on the platform", "description": "Register at [arcnova.tv](https://arcnova.tv/en/tasks?inviter=9V9V39D7C2CV) using the referral link to start earning points."},
     {"title": "Complete social tasks", "description": "Follow ArcNova on X, join the Telegram and Discord for one-time and daily points."},
     {"title": "Claim your daily check-in", "description": "Log in each day to claim check-in points — these add up over time."},
     {"title": "Install the mobile app", "description": "Download the ArcNova app for additional points."},
