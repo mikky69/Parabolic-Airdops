@@ -4,7 +4,7 @@ Premium, dark-mode Web3 airdrop discovery platform. Next.js 14 (App Router) +
 TypeScript + Tailwind + Supabase. Built to run entirely on free tiers
 (Vercel + Supabase).
 
-## What's built so far (Step 1 & 2)
+## What's built so far
 
 - ✅ Full database schema (`supabase/migrations/0001_init.sql`) — airdrops,
   images, analytics events, comments, ad placements, RLS policies, storage
@@ -14,32 +14,40 @@ TypeScript + Tailwind + Supabase. Built to run entirely on free tiers
   footer.
 - ✅ Landing page — hero with the aurora glow signature element, live airdrop
   grid pulling from Supabase, honest empty state when there's no data yet.
+- ✅ `/airdrops` listing page — status/category filters synced to the URL,
+  Hot Airdrops sidebar.
+- ✅ `/airdrops/[slug]` detail page — image gallery, step-by-step guide,
+  launch/expiry countdown, redirect CTA with click tracking, comment feed +
+  posting form.
+- ✅ Privacy-friendly analytics (`lib/analytics.ts`) — hashed IP+UA, deduped
+  per visitor per day, no raw IPs ever stored. Views logged server-side on
+  page load, clicks logged via `/api/track` right before the redirect.
+- ✅ `supabase/seed.sql` — optional, inserts one sample airdrop + comment so
+  the grid/detail page have something to show before the admin exists.
 - ✅ Brand theme (Tailwind tokens) derived from the actual Parabolic DAO logo.
 
 ## Not built yet (next steps)
 
-- `/airdrops` listing page with filters
-- `/airdrops/[slug]` detail page (steps, image gallery, comments)
-- `/admin` dashboard (auth, CRUD, image upload, ad placement manager)
-- `/api/track` view/click logging endpoint
-- `/api/comments` posting endpoint
+- `/admin` dashboard (auth, airdrop CRUD, image upload, ad placement manager)
 - `middleware.ts` admin route guard
 
 ## Local setup
 
 1. **Create a Supabase project** (free tier is fine) at supabase.com.
 2. In the SQL Editor, run `supabase/migrations/0001_init.sql`.
-3. In **Authentication → Users**, create one admin user (email + password) —
+3. (Optional) Run `supabase/seed.sql` to insert one sample airdrop so the
+   grid and detail page have something to show immediately.
+4. In **Authentication → Users**, create one admin user (email + password) —
    this becomes your only `/admin` login.
-4. Copy `.env.local.example` to `.env.local` and fill in:
+5. Copy `.env.local.example` to `.env.local` and fill in:
    - `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Project
      Settings → API.
    - `SUPABASE_SERVICE_ROLE_KEY` — same page, **server-only, never commit
      this**.
-   - `ADMIN_EMAIL` — the email you used in step 3.
+   - `ADMIN_EMAIL` — the email you used in step 4.
    - `ANALYTICS_SALT` — any random string.
-5. `npm install`
-6. `npm run dev`
+6. `npm install`
+7. `npm run dev`
 
 ## Deploying (free tier)
 

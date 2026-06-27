@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import type { Airdrop } from "@/types/database.types";
+import type { Airdrop, AirdropImage } from "@/types/database.types";
 
 export interface AirdropWithHotScore extends Airdrop {
   hot_score: number;
@@ -64,4 +64,42 @@ export async function getAirdropBySlug(slug: string): Promise<Airdrop | null> {
 
   if (error || !data) return null;
   return data;
+}
+
+export async function getAirdropImages(airdropId: string): Promise<AirdropImage[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return [];
+
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("airdrop_images")
+    .select("*")
+    .eq("airdrop_id", airdropId)
+    .order("sort_order", { ascending: true });
+
+  if (error || !data) return [];
+  return data;
+}
+
+/** Distinct categories currently in use, for the listing page filter bar. */
+export async function getCategories(): Promise<string[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return [];
+
+  const supabase = createClient();
+  const { data, error } = await supabase.from("airdrops").select("category");
+  if (error || !data) return [];
+
+  return Array.from(new Set(data.map((row) => row.category))).sort();
+}
+
+export async function getAirdropHotScore(airdropId: string): Promise<number> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return 0;
+
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("airdrop_hot_scores")
+    .select("hot_score")
+    .eq("airdrop_id", airdropId)
+    .maybeSingle();
+
+  return data?.hot_score ?? 0;
 }
