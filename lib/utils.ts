@@ -58,3 +58,13 @@ export function timeUntil(value: string | null) {
   const hours = Math.floor(ms / (1000 * 60 * 60));
   return `${Math.max(hours, 1)}h left`;
 }
+
+/**
+ * Converts "[text](url)" into plain "text" — for contexts like the
+ * line-clamped card preview where we can't render a real, separately
+ * clickable <a> (the whole card is already a Link to the detail page,
+ * so a nested anchor there would be invalid/inaccessible markup).
+ */
+export function stripMarkdownLinks(text: string) {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
+}

@@ -11,7 +11,7 @@ insert into public.airdrops (
 ) values (
   'Predict.Fun — World Cup 2026 ($2M Prize Pool)',
   'predict-fun-world-cup-2026',
-  'Farm rewards while watching the World Cup. Predict.Fun has launched a dedicated World Cup 2026 campaign with $2,000,000 in rewards for active participants, running on BNB Chain.
+  'Farm rewards while watching the World Cup. Predict.Fun has [launched](https://x.com/predictdotfun/status/2066839954802573623) a dedicated World Cup 2026 campaign with $2,000,000 in rewards for active participants, running on BNB Chain.
 
 Register on Predict.Fun, open the World Cup 2026 section, and select up to 5 national teams to follow. Make predictions on match outcomes, hold your picks until each match ends, and earn Fan Points to climb the leaderboard.
 

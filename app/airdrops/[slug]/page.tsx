@@ -13,6 +13,7 @@ import { CtaButton } from "@/components/airdrops/CtaButton";
 import { CommentFeed } from "@/components/comments/CommentFeed";
 import { CommentForm } from "@/components/comments/CommentForm";
 import { AdSlot } from "@/components/layout/AdSlot";
+import { RichText } from "@/components/ui/RichText";
 
 export const revalidate = 30;
 
@@ -73,9 +74,9 @@ export default async function AirdropDetailPage({
             <h2 className="font-display text-xl font-semibold text-white">
               About this Airdrop
             </h2>
-            <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-zinc-400">
-              {airdrop.description}
-            </p>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-400">
+              <RichText text={airdrop.description} />
+            </div>
           </div>
 
           <StepGuide steps={airdrop.steps} />

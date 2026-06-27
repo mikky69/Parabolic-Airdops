@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { cn, formatDate, getDerivedBadges, timeUntil } from "@/lib/utils";
+import { cn, formatDate, getDerivedBadges, stripMarkdownLinks, timeUntil } from "@/lib/utils";
 import { AirdropBadge } from "./AirdropBadge";
 import type { AirdropWithHotScore } from "@/lib/airdrops";
 
@@ -87,7 +87,7 @@ export function AirdropCard({
         )}
 
         <p className="mt-3 line-clamp-2 flex-1 text-sm text-zinc-400">
-          {airdrop.description}
+          {stripMarkdownLinks(airdrop.description)}
         </p>
 
         <div className="mt-4 flex items-center justify-between border-t border-obsidian-border/60 pt-3 text-xs font-mono text-zinc-500">
