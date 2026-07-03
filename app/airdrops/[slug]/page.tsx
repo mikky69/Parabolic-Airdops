@@ -8,6 +8,7 @@ import { logEvent } from "@/lib/analytics";
 import { getDerivedBadges, formatDate, timeUntil } from "@/lib/utils";
 import { AirdropBadge } from "@/components/airdrops/AirdropBadge";
 import { ImageGallery } from "@/components/airdrops/ImageGallery";
+import { ClickableGallery } from "@/components/airdrops/ClickableGallery";
 import { StepGuide } from "@/components/airdrops/StepGuide";
 import { CtaButton } from "@/components/airdrops/CtaButton";
 import { CommentFeed } from "@/components/comments/CommentFeed";
@@ -68,7 +69,14 @@ export default async function AirdropDetailPage({
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_300px]">
         <div className="space-y-10">
-          {images.length > 0 && <ImageGallery images={images} />}
+          {images.length > 0 && (
+            <ClickableGallery
+              images={images}
+              airdropId={airdrop.id}
+              redirectUrl={airdrop.redirect_url}
+              title={airdrop.title}
+            />
+          )}
 
           <div>
             <h2 className="font-display text-xl font-semibold text-white">
