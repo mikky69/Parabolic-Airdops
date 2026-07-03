@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   title: "Parabolic Airdrop — Track Web3 Airdrops Before They End",
   description:
     "Discover, track, and act on legitimate Web3 airdrops. Step-by-step guides, real-time status, and a live community feed for every project.",
+  other: {
+    coinzilla: "ecfc3c1b13a7771dcb823710b9cd6257",
+  },
 };
 
 export default function RootLayout({
