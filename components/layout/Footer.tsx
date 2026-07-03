@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-obsidian-border/60 bg-obsidian-surface/40">
@@ -23,6 +31,16 @@ export function Footer() {
               The fastest way to find, track, and act on legitimate Web3
               airdrops before they end.
             </p>
+            <a
+              href="https://x.com/0xParabolicDAO"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-obsidian-border bg-obsidian-raised px-3 py-2 text-sm text-zinc-400 transition-colors hover:border-brand-magenta/40 hover:text-white"
+              aria-label="Follow Parabolic DAO on X"
+            >
+              <XIcon className="h-4 w-4" />
+              @0xParabolicDAO
+            </a>
           </div>
 
           <FooterColumn
@@ -45,17 +63,27 @@ export function Footer() {
             ]}
           />
 
-          <FooterColumn
-            title="Platform"
-            links={[
-              { href: "/admin/login", label: "Admin" },
-            ]}
-          />
+          <div>
+            <h4 className="text-sm font-medium text-zinc-300">Community</h4>
+            <ul className="mt-3 space-y-2.5">
+              <li>
+                <a
+                  href="https://x.com/0xParabolicDAO"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-brand-magenta"
+                >
+                  <XIcon className="h-3.5 w-3.5" />
+                  Follow us on X
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-10 border-t border-obsidian-border/60 pt-6 text-xs text-zinc-600">
-          © {new Date().getFullYear()} Parabolic Airdrop. Not financial advice
-          — always verify a project before connecting your wallet.
+          © {new Date().getFullYear()} Parabolic Airdrop. Not financial advice.
+          Always verify a project before connecting your wallet.
         </div>
       </div>
     </footer>
