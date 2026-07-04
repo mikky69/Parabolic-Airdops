@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "Discover, track, and act on legitimate Web3 airdrops. Step-by-step guides, real-time status, and a live community feed for every project.",
   other: {
-    coinzilla: "ecfc3c1b13a7771dcb823710b9cd6257",
+    "bitmedia-site-verification": "b1b511ce5d2891d4e39f35c5b0277708",
   },
 };
 
