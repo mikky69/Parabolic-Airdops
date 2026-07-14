@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   title: "Parabolic Airdrop — Track Web3 Airdrops Before They End",
   description:
     "Discover, track, and act on legitimate Web3 airdrops. Step-by-step guides, real-time status, and a live community feed for every project.",
+  icons: {
+    icon: "/brand/parabolic-logo.jpg",
+    apple: "/brand/parabolic-logo.jpg",
+  },
   other: {
     "bitmedia-site-verification": "b1b511ce5d2891d4e39f35c5b0277708",
   },
