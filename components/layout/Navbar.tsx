@@ -4,8 +4,9 @@ import { Swords } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/airdrops", label: "Airdrops" },
-  { href: "/airdrops?category=DeFi", label: "DeFi" },
-  { href: "/airdrops?category=NFT", label: "NFT" },
+  { href: "/news", label: "News" },
+  { href: "/news?category=Campaign", label: "Campaigns" },
+  { href: "/news?category=Bounty", label: "Bounties" },
 ];
 
 export function Navbar() {

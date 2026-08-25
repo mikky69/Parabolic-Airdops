@@ -53,6 +53,15 @@ export function Footer() {
           />
 
           <FooterColumn
+            title="Updates"
+            links={[
+              { href: "/news", label: "News" },
+              { href: "/news?category=Campaign", label: "Campaigns" },
+              { href: "/news?category=Bounty", label: "Bounties" },
+            ]}
+          />
+
+          <FooterColumn
             title="Ecosystem"
             links={[
               {

@@ -106,6 +106,29 @@ export interface Database {
         Update: Partial<Database["public"]["Tables"]["ad_placements"]["Row"]>;
         Relationships: [];
       };
+      posts: {
+        Row: {
+          id: string;
+          title: string;
+          slug: string;
+          excerpt: string;
+          content: string;
+          category: "News" | "Campaign" | "Bounty";
+          cover_image_url: string | null;
+          source_url: string | null;
+          source_label: string | null;
+          featured: boolean;
+          published_at: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: Partial<Database["public"]["Tables"]["posts"]["Row"]> & {
+          title: string;
+          slug: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["posts"]["Row"]>;
+        Relationships: [];
+      };
     };
     Views: {
       airdrop_hot_scores: {
@@ -126,3 +149,19 @@ export type Airdrop = Database["public"]["Tables"]["airdrops"]["Row"];
 export type AirdropImage = Database["public"]["Tables"]["airdrop_images"]["Row"];
 export type Comment = Database["public"]["Tables"]["comments"]["Row"];
 export type AdPlacement = Database["public"]["Tables"]["ad_placements"]["Row"];
+
+export interface Post {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  category: "News" | "Campaign" | "Bounty";
+  cover_image_url: string | null;
+  source_url: string | null;
+  source_label: string | null;
+  featured: boolean;
+  published_at: string;
+  created_at: string;
+  updated_at: string;
+}
