@@ -37,8 +37,9 @@ export default async function NewsPage({ searchParams }: PageProps) {
         </p>
       </div>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        {TABS.map((tab) => {
+      <div className="mb-8 -mx-4 sm:mx-0">
+        <div className="flex gap-2 overflow-x-auto px-4 sm:px-0 pb-1 scrollbar-hide">
+          {TABS.map((tab) => {
           const isActive =
             (tab.value === "all" && !activeCategory) ||
             tab.value === activeCategory;
@@ -51,7 +52,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
               key={tab.value}
               href={href}
               className={cn(
-                "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                "inline-flex flex-shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                 isActive
                   ? "border-brand-magenta/50 bg-brand-magenta/10 text-white"
                   : "border-obsidian-border text-zinc-400 hover:text-white"
@@ -62,6 +63,7 @@ export default async function NewsPage({ searchParams }: PageProps) {
             </Link>
           );
         })}
+        </div>
       </div>
 
       {posts.length === 0 ? (

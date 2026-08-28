@@ -31,21 +31,23 @@ export function FilterBar({ categories }: { categories: string[] }) {
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex flex-wrap gap-2">
-        {STATUS_OPTIONS.map((opt) => (
-          <button
-            key={opt.value}
-            onClick={() => updateParam("status", opt.value)}
-            className={cn(
-              "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors",
-              activeStatus === opt.value
-                ? "border-brand-magenta/50 bg-brand-magenta/15 text-white"
-                : "border-obsidian-border text-zinc-400 hover:text-white"
-            )}
-          >
-            {opt.label}
-          </button>
-        ))}
+      <div className="-mx-4 sm:mx-0">
+        <div className="flex gap-2 overflow-x-auto px-4 sm:px-0 pb-1 scrollbar-hide">
+          {STATUS_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => updateParam("status", opt.value)}
+              className={cn(
+                "flex-shrink-0 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors",
+                activeStatus === opt.value
+                  ? "border-brand-magenta/50 bg-brand-magenta/15 text-white"
+                  : "border-obsidian-border text-zinc-400 hover:text-white"
+              )}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {categories.length > 0 && (

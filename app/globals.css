@@ -40,6 +40,14 @@
     @apply bg-obsidian-surface/70 backdrop-blur-xl border border-obsidian-border;
   }
 
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Respect reduced-motion preference site-wide */
   @media (prefers-reduced-motion: reduce) {
     .animate-pulse-slow,
