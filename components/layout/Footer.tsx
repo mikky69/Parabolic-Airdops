@@ -57,6 +57,7 @@ export function Footer() {
             links={[
               { href: "/news", label: "News" },
               { href: "/news?category=Campaign", label: "Campaigns" },
+              { href: "/campaign", label: "Learn to Earn" },
               { href: "/news?category=Bounty", label: "Bounties" },
             ]}
           />

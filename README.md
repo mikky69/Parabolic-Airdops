@@ -58,6 +58,31 @@ TypeScript + Tailwind + Supabase. Built to run entirely on free tiers
 4. Deploy. Supabase free tier covers the database, auth, and storage bucket
    used here.
 
+## Learn to Earn campaign page (`/campaign`)
+
+Shows the live FreelanceDAO WhatsApp contest: countdown to the next session,
+the schedule, and the daily and overall leaderboards. It refreshes itself
+every 20 seconds, so scores appear shortly after they happen on WhatsApp. A
+small banner with a countdown also appears on the landing page while a
+contest is running, and disappears when there is none.
+
+The data comes from the WhatsApp bot's Supabase project through three
+read-only functions. Only display names and XP are public. WhatsApp numbers,
+referral codes and group IDs are never exposed.
+
+Setup:
+
+1. In the Supabase project the WhatsApp bot uses, run
+   `supabase/campaign-public-api.sql` in the SQL Editor. (The bot's
+   `contest_upgrade.sql` and `contest_control.sql` must already be applied.)
+2. If that is a **different** project from this site's, add
+   `NEXT_PUBLIC_CAMPAIGN_SUPABASE_URL` and
+   `NEXT_PUBLIC_CAMPAIGN_SUPABASE_ANON_KEY` (its public anon key) in Vercel.
+   If it is the same project, nothing to add.
+3. Optional: set `NEXT_PUBLIC_CAMPAIGN_JOIN_URL` to your WhatsApp community
+   invite link to show a Join button on the page.
+4. Redeploy. Start the contest from WhatsApp with `!contest start`.
+
 ## Schema overview
 
 | Table | Purpose |
