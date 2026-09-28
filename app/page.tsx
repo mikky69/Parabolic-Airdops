@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { getAirdrops, getHotAirdrops } from "@/lib/airdrops";
 import { AirdropGrid } from "@/components/airdrops/AirdropGrid";
 import { AdSlot } from "@/components/layout/AdSlot";
+import { CampaignBanner } from "@/components/campaign/CampaignBanner";
 
 export const revalidate = 60;
 
@@ -56,6 +57,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <CampaignBanner />
 
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between">
