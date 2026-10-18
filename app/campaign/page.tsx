@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Users, BookOpen, Zap, UserPlus } from "lucide-react";
 import { getCampaignClient } from "@/lib/campaign/client";
 import { fetchCampaign } from "@/lib/campaign/api";
+import { fetchSocialQuests } from "@/lib/campaign/quests";
 import { CampaignLive } from "@/components/campaign/CampaignLive";
+import { SocialQuests } from "@/components/campaign/SocialQuests";
 
 export const revalidate = 15;
 
@@ -18,7 +20,7 @@ const STEPS = [
   {
     icon: Users,
     title: "Join the community",
-    text: "Join the WhatsApp community and follow our socials.",
+    text: "Join the WhatsApp community and follow our socials for bonus XP.",
   },
   {
     icon: BookOpen,
@@ -38,7 +40,11 @@ const STEPS = [
 ];
 
 export default async function CampaignPage() {
-  const initial = await fetchCampaign(getCampaignClient());
+  const client = getCampaignClient();
+  const [initial, quests] = await Promise.all([
+    fetchCampaign(client),
+    fetchSocialQuests(client),
+  ]);
 
   return (
     <>
@@ -74,6 +80,8 @@ export default async function CampaignPage() {
       <section className="mx-auto max-w-3xl px-4 pb-12 sm:px-6 lg:px-8">
         <CampaignLive initial={initial} />
       </section>
+
+      <SocialQuests quests={quests} />
 
       <section className="mx-auto max-w-5xl px-4 pb-20 sm:px-6 lg:px-8">
         <h2 className="mb-6 text-center text-2xl font-semibold">How it works</h2>
